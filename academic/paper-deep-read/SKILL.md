@@ -1,3 +1,10 @@
+---
+name: paper-deep-read
+description: 对学术论文进行逐段精读，包含原文、翻译、讲解和笔记总结
+allowed-tools:
+  - Read
+---
+
 # 论文精读
 
 对学术论文进行逐段精读，包含原文、翻译、讲解和笔记总结。

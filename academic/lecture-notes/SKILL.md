@@ -1,3 +1,10 @@
+---
+name: lecture-notes
+description: 将学科课件逐页详细讲解，并生成结构化笔记
+allowed-tools:
+  - Read
+---
+
 # 课件讲解与笔记总结
 
 将学科课件（PDF/PPT）逐页进行详细讲解，并生成结构化笔记。

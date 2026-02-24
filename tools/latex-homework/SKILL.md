@@ -1,3 +1,11 @@
+---
+name: latex-homework
+description: 根据LaTeX课程作业模板快速组织作业内容
+allowed-tools:
+  - Read
+  - Write
+---
+
 # LaTeX作业模板助手
 
 根据给定的LaTeX课程作业模板，快速组织作业内容。

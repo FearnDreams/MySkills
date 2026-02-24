@@ -1,3 +1,10 @@
+---
+name: paper-popularize
+description: 将学术论文转译成通俗易懂的科普文章
+allowed-tools:
+  - Read
+---
+
 # 学术论文科普
 
 将学术论文转译成通俗易懂的科普文章，让普通大众也能理解前沿研究。

@@ -1,3 +1,11 @@
+---
+name: knowledge-linking
+description: 将阅读文献过程中遇到的碎片化知识点进行串联和补全
+allowed-tools:
+  - Read
+  - Write
+---
+
 # 碎片化知识串联整理
 
 在阅读文献过程中，将碎片化的知识点进行串联和补全，形成系统的知识结构。

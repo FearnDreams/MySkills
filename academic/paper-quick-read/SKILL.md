@@ -1,3 +1,10 @@
+---
+name: paper-quick-read
+description: 对学术论文进行快速粗读，提取核心信息
+allowed-tools:
+  - Read
+---
+
 # 论文粗读
 
 对学术论文进行快速粗读，提取核心信息，帮助快速判断论文价值。

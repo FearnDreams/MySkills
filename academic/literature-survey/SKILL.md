@@ -1,3 +1,11 @@
+---
+name: literature-survey
+description: 针对特定研究领域进行全面系统的文献调研
+allowed-tools:
+  - WebSearch
+  - WebFetch
+---
+
 # 文献调研
 
 针对特定研究领域进行全面系统的文献调研，整理相关论文和资源。

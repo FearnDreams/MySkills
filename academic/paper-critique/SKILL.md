@@ -1,3 +1,10 @@
+---
+name: paper-critique
+description: 对学术论文进行深度批判性分析
+allowed-tools:
+  - Read
+---
+
 # 论文深度解析与批判性思考
 
 对学术论文进行深度批判性分析，评估其学术价值和潜在问题。
