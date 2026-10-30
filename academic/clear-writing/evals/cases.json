@@ -1,0 +1,65 @@
+{
+  "purpose": "行为回归案例；按含义与任务约束判断，不要求固定措辞。不是已完成的真人可读性实验。",
+  "cases": [
+    {
+      "id": "zh_dense_draft",
+      "request": "请用 clear-writing 改这段给产品经理看的说明，只给修改稿：我们评估的是检索系统。长尾查询覆盖不足引发的召回质量波动增加了人工复核负担。离线评测显示，该策略与错误率下降相关，但线上收益尚未验证。",
+      "must_preserve": ["对象为检索系统", "长尾查询覆盖不足与召回质量波动、人工复核负担的关系", "离线相关性及线上未验证的限制"],
+      "failure_signals": ["把相关性升级成已证实因果", "编造策略细节或数值", "加入编辑报告", "把召回率与准确率混为一谈"]
+    },
+    {
+      "id": "zh_conditions",
+      "request": "帮我把这段产品规则写清楚，规则不能变化：仅当请求不含个人信息、用户已同意且缓存未过期时，系统才复用缓存结果；管理员撤回授权后，即使缓存未过期，也不得继续复用。",
+      "must_preserve": ["三项必要条件的合取关系", "管理员撤回授权后禁止复用", "未过期也不豁免撤回规则"],
+      "failure_signals": ["将必要条件写成充分条件", "遗漏任一条件或例外", "擅自增加等待时间或权限"]
+    },
+    {
+      "id": "zh_numbers_citations",
+      "request": "润色给研究同行看的段落，保留引用：在这项观察性研究的样本中，错误率从10%降至8%，下降2个百分点[1]。该结果不能证明策略A导致了下降，也不能推广到未采样人群。",
+      "must_preserve": ["10%、8%、2个百分点", "观察性研究与样本范围", "不能证明因果", "不能推广到未采样人群", "引用[1]仍支持数字所在主张"],
+      "failure_signals": ["写成下降2%", "删除否定或范围", "增加因果性措辞", "把引用移到不受支持的新增主张"]
+    },
+    {
+      "id": "zh_ambiguous_subject",
+      "request": "只改这句话，让指代更清楚：作者把审稿人的意见发给编辑后，他撤回了修改建议。没有其他背景。",
+      "must_preserve": ["无法确定撤回建议的主体", "保持请求范围为这一句"],
+      "failure_signals": ["直接指定作者、审稿人或编辑撤回", "编造背景来消歧"]
+    },
+    {
+      "id": "zh_voice_and_quote",
+      "request": "用 clear-writing 轻改一下，保留文学语气和引号里的原话，已经清楚就别动：我把那封信读了三遍。窗外的雨还没停，屋里却已经安静下来。他只写了一句：“算了，明天再说。”",
+      "must_preserve": ["叙事节奏、雨和安静的意象", "直接引语逐字保留", "读了三遍"],
+      "failure_signals": ["添加未提供的情绪原因", "改写引文", "改成报告或项目符号", "为了有修改而扩写"]
+    },
+    {
+      "id": "en_expert_uncertainty",
+      "request": "Use clear-writing to lightly edit for statistical researchers. Return only the paragraph: In this sample, lower latency was associated with higher completion rates; the observational design cannot establish causality. The results suggest that the effect may depend on sample size.",
+      "must_preserve": ["English output for an expert audience", "association rather than causation", "in this sample", "suggest and may remain equivalent in certainty"],
+      "failure_signals": ["claims lower latency causes improvement", "adds tutorial material", "drops uncertainty", "returns Chinese commentary"]
+    },
+    {
+      "id": "en_noun_stack",
+      "request": "Use clear-writing for a technical operations report. Context: our team compares how often different teams make mistakes when reviewing deployment exceptions. Edit: Cross-team deployment exception review error rates remain unmeasured.",
+      "must_preserve": ["no measurements yet", "errors in reviewing deployment exceptions", "comparison across different teams"],
+      "failure_signals": ["changes review errors to deployment errors", "claims a high or low error rate", "says all teams review jointly"]
+    },
+    {
+      "id": "zh_diagnosis_only",
+      "request": "只诊断，不要给整篇改稿：团队缩短了培训。次月，投诉增加了。因此这证明培训缩短必然导致投诉增加。",
+      "must_preserve": ["仅诊断形式", "识别因果推断超出已有信息"],
+      "failure_signals": ["直接交付全文改写", "肯定原文因果结论", "虚构外部研究作为依据"]
+    },
+    {
+      "id": "zh_hard_length",
+      "request": "压到50个汉字以内，数字和限制都要保留，只给正文：仅对这200个样本，A组错误率为8%，B组为10%。两组差异不显著，也不能由此判断A对其他人群有效。",
+      "must_preserve": ["200个样本的范围", "A为8%、B为10%", "差异不显著", "不能判断对其他人群有效", "不超过50个汉字"],
+      "failure_signals": ["删去不显著", "改成两组相同", "宣称A有效", "超出明确篇幅限制"]
+    },
+    {
+      "id": "zh_existing_workflow",
+      "request": "这是一篇已经定好结构的产品说明的最后一段，只做清晰度审校，不动产品名、字段名和链接：只有 retry_count 小于 3 且状态是 pending 时，ClearBox 才再次请求。请求完成后会记录 request_id。细节见[接口说明](https://example.com/api)。",
+      "must_preserve": ["retry_count 小于 3 和 pending 的必要条件", "ClearBox、retry_count、pending、request_id 原样", "请求完成后记录标识", "链接与修改范围"],
+      "failure_signals": ["改成小于等于3", "改写代码标识符或链接", "扩大为整篇教程", "增加重试间隔、原因或其他事实"]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "清晰写作"
+  short_description: "改善中英文文章的可读性，保留事实、限定条件、专业术语与作者声音"
+  default_prompt: "请用 $clear-writing 编辑下面的文章，让目标读者更容易理解，同时保留事实、限定条件和我的语气。"
