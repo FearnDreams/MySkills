@@ -1,65 +1,62 @@
 # MySkills
 
-通用 Skills 集合，支持多种 Agent 框架。
+研究、阅读与写作的可复用方法。
 
-## 目录结构
+每个 skill 只维护一份 `SKILL.md`，供 Codex、Claude Code 及其他 agent 读取使用。支持 skills 的 agent 可安装加载，其他 agent 也可直接读取文件执行；具体读文件、检索等操作使用各自已有的工具。
 
-```
-MySkills/
-├── README.md
-├── convert.py
-├── claude/          # Claude Desktop JSON 格式
-├── gpt/             # OpenAI GPTs 格式
-├── academic/        # Alma 源文件
-├── knowledge/
-└── tools/
-```
+## 开始使用
 
-## 平台适配
+**发消息给 Codex / Claude Code：**
 
-| 平台 | 格式 | 导入方式 |
-|------|------|----------|
-| **Alma** | YAML+Markdown | `alma skill use <name>` |
-| **Claude Desktop** | JSON | 复制 `claude/*.json` 到 Custom Skills |
-| **OpenAI GPTs** | Markdown | 复制 `gpt/*.md` 到 Instructions |
-
-## Skills 列表
-
-| Skill | 描述 |
-|-------|------|
-| `paper-deep-read` | 论文精读 - 逐段精读，包含原文、翻译、讲解和笔记总结 |
-| `paper-quick-read` | 论文粗读 - 快速提取核心信息 |
-| `paper-critique` | 论文批判性分析 |
-| `paper-popularize` | 学术科普 - 转译成通俗易懂的文章 |
-| [`clear-writing`](academic/clear-writing/SKILL.md) | 清晰写作 - 改善中英文稿件的可读性，保留事实、限定条件与作者声音 |
-| `literature-survey` | 文献调研 |
-| `lecture-notes` | 课件讲解 - 逐页讲解并生成笔记 |
-| `knowledge-linking` | 碎片化知识整合 |
-| `latex-homework` | LaTeX作业助手 |
-
-## 清晰写作
-
-`clear-writing` 可单独编辑已有稿件，也可作为文章初稿完成后的审校步骤。
-
-示例：`请用 $clear-writing 修改这篇文章，读者是产品经理。保留术语和事实，只给修改稿。`
-
-源文件与补充案例位于 [`academic/clear-writing/`](academic/clear-writing/)。Claude JSON 和 GPT Markdown 由现有转换脚本生成；核心编辑流程在单文件导出中完整保留。Codex 可将整个 `clear-writing` 文件夹放入自己的 skills 目录使用。
-
-方法受 [arXiv:2610.29162v1](https://arxiv.org/abs/2610.29162v1) 启发；中文规则与编辑流程是实践设计，效果需结合目标读者检验。
-
-## 格式转换
-
-修改源文件后运行：
-
-```bash
-python3 convert.py
+```text
+请从 https://github.com/FearnDreams/MySkills 安装 clear-writing 和 paper-quick-read。
+先阅读仓库 README，再将这两个 skill 的完整目录安装到你当前环境支持的 skills 位置，
+保留附带文件。完成后确认能读取各自的 SKILL.md，并告诉我如何调用。
 ```
 
-## 添加新 Skill
+想全部安装，把名称换成「全部 skills」即可。
 
-1. 在 `academic/` 下创建目录，添加 `SKILL.md`（YAML frontmatter 格式）
-2. 运行 `python3 convert.py`
+也可以先不安装，在 agent 能读取仓库文件时直接发：
 
-## License
+```text
+请读取 https://github.com/FearnDreams/MySkills 中的 clear-writing/SKILL.md，
+按其中的方法编辑下面这篇文章。
+```
+
+## 使用示例
+
+安装后，直接告诉 agent 要用哪个 skill，并附上材料。
+
+**快速读论文**
+
+> 用 paper-quick-read 阅读这篇论文，帮我判断它解决了什么问题、证据是否充分，以及值不值得精读。
+
+**把文章写清楚**
+
+> 用 clear-writing 修改下面的文章。读者是产品经理，保留事实和必要术语，只给修改稿。
+
+**组合使用**
+
+> 先用 paper-popularize 把这篇论文写成科普文章，再用 clear-writing 检查可读性。保留研究的限定条件，不夸大结论。
+
+## Skills
+
+| Skill | 用途 |
+| --- | --- |
+| [clear-writing](clear-writing/SKILL.md) | 改善中英文稿件的可读性，保留事实与作者声音 |
+| [paper-quick-read](paper-quick-read/SKILL.md) | 快速提取论文的问题、方法、结果与局限 |
+| [paper-deep-read](paper-deep-read/SKILL.md) | 逐段精读，翻译、讲解公式并整理笔记 |
+| [paper-critique](paper-critique/SKILL.md) | 评估研究设计、证据和贡献，寻找不足与启发 |
+| [paper-popularize](paper-popularize/SKILL.md) | 将学术论文写成通俗易懂的科普文章 |
+| [literature-survey](literature-survey/SKILL.md) | 围绕研究主题检索、筛选与整理文献 |
+| [lecture-notes](lecture-notes/SKILL.md) | 逐页讲解课件，形成结构化学习笔记 |
+| [knowledge-linking](knowledge-linking/SKILL.md) | 补全知识缺口，连接零散概念 |
+| [latex-homework](latex-homework/SKILL.md) | 按已有 LaTeX 模板组织作业内容 |
+
+## 添加 Skill
+
+在仓库根目录创建 `<skill-name>/SKILL.md`，包含 `name`、`description` 的 YAML frontmatter 和执行说明。示例、参考资料与脚本放在该 skill 内，使用相对路径引用。保持同一份内容可被不同 agent 使用，不绑定平台工具名。
+
+---
 
 MIT
