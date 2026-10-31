@@ -31,6 +31,8 @@
 
 > 用 paper-quick-read 阅读这篇论文，帮我判断它解决了什么问题、证据是否充分，以及值不值得精读。
 
+默认按 **Insight & Motivation → Method → Experiments → Limitations → 研究启发** 讲解，方法部分先给流程图，再解释执行步骤与核心公式。完整回答通常为 3,000–5,000 个中文正文汉字，Method 约占 45%–55%；也可以直接要求简短版、只讲方法或深入解释某条公式。细则和已认可的 STAR 示例随 skill 目录一起安装。
+
 **把文章写清楚**
 
 > 用 clear-writing 修改下面的文章。读者是产品经理，保留事实和必要术语，只给修改稿。
@@ -44,7 +46,7 @@
 | Skill | 用途 |
 | --- | --- |
 | [clear-writing](clear-writing/SKILL.md) | 改善中英文稿件的可读性，保留事实与作者声音 |
-| [paper-quick-read](paper-quick-read/SKILL.md) | 快速提取论文的问题、方法、结果与局限 |
+| [paper-quick-read](paper-quick-read/SKILL.md) | 用方法流程图、分步公式与实验取证完成五部分论文讲解 |
 | [paper-deep-read](paper-deep-read/SKILL.md) | 逐段精读，翻译、讲解公式并整理笔记 |
 | [paper-critique](paper-critique/SKILL.md) | 评估研究设计、证据和贡献，寻找不足与启发 |
 | [paper-popularize](paper-popularize/SKILL.md) | 将学术论文写成通俗易懂的科普文章 |
