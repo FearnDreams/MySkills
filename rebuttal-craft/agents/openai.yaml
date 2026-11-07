@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rebuttal Craft"
+  short_description: "Evidence-led, concise point-by-point reviewer replies"
+  default_prompt: "Use $rebuttal-craft to revise my reviewer replies with clear conclusions, traceable evidence, and honest limitations."

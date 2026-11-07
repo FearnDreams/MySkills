@@ -46,6 +46,7 @@
 | Skill | 用途 |
 | --- | --- |
 | [clear-writing](clear-writing/SKILL.md) | 改善中英文稿件的可读性，保留事实与作者声音 |
+| [rebuttal-craft](rebuttal-craft/SKILL.md) | 用结论先行的逐点回复组织可核实证据，平和回应审稿意见 |
 | [paper-quick-read](paper-quick-read/SKILL.md) | 用方法流程图、分步公式与实验取证完成五部分论文讲解 |
 | [paper-deep-read](paper-deep-read/SKILL.md) | 逐段精读，翻译、讲解公式并整理笔记 |
 | [paper-critique](paper-critique/SKILL.md) | 评估研究设计、证据和贡献，寻找不足与启发 |
